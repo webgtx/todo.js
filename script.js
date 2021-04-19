@@ -4,7 +4,7 @@ let todo = document.querySelector('.todo');
 
 let todoList = [];
 
-btnAdd.addEventListener('click',() => {
+btnAdd.addEventListener('click', () => {
     let newTodo = {
         info: message.value,
         checked: false,
@@ -15,14 +15,13 @@ btnAdd.addEventListener('click',() => {
 })
 
 function displayMessage() {
-    let dislpayMessage
+    let dislpayMessage = ""
     todoList.forEach((item, index) => {
         dislpayMessage += `
-        <li>
-            <input type="checkbox" id="item_${index}">
-            <label for="item_${index}">${item.info}</label>
-        </li>
-        `;
+            <li>
+                <input type="checkbox" id="item_${index}">
+                <label for="item_${index}">${item.info}</label>
+            </li>`;
         todo.innerHTML = dislpayMessage;
     })
 }
