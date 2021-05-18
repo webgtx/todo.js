@@ -1,5 +1,6 @@
 body {
-  background-color: #111;
+  background-color: #111111;
+  color: #fff;
   font-family: sans-serif;
   -webkit-box-sizing: content-box;
   box-sizing: content-box; }
@@ -64,7 +65,7 @@ input[type=checkbox], label {
 
 input[type=checkbox] + label:before {
   content: '';
-  background: #1BA39C;
+  background: #111;
   border-radius: 5px;
   border: 2px solid #ddd;
   display: inline-block;
@@ -80,10 +81,14 @@ input[type=checkbox]:checked + label:before {
   display: inline-block;
   width: 1px;
   height: 5px;
-  border: solid blue;
+  border: solid #fff;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   border-radius: 0;
   margin: 0 15px 5px 5px; }
+
+.none {
+  display: none;
+}

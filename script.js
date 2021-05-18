@@ -4,6 +4,11 @@ let todo = document.querySelector('.todo');
 
 let todoList = [];
 
+if (localStorage.getItem('todo')) {
+  todoList = JSON.parse(localStorage.getItem('todo'));
+  displayMessage();
+}
+
 btnAdd.addEventListener('click', () => {
     let newTodo = {
         info: message.value,
@@ -12,17 +17,29 @@ btnAdd.addEventListener('click', () => {
     }
     todoList.push(newTodo);
     displayMessage();
+    localStorage.setItem('todo', JSON.stringify(todoList));
+})
+
+todo.addEventListener('change', event => {
+  let valueLabel = todo.querySelector(`[for='${event.target.getAttribute('id')}']`).innerHTML;
+
+  todoList.forEach(item => {
+    if (item.info === valueLabel) {
+      item.checked = !item.checked;
+      localStorage.setItem('todo', JSON.stringify(todoList));
+    }
+  })
 })
 
 function displayMessage() {
-    let dislpayMessage = ""
+    let logMessage = ""
     todoList.forEach((item, index) => {
-        dislpayMessage += `
-            <li>
-                <input type="checkbox" id="item_${index}">
-                <label for="item_${index}">${item.info}</label>
-            </li>`;
-        todo.innerHTML = dislpayMessage;
+      logMessage += `
+          <li class="todo__list" id="${index}">
+              <input type="checkbox" id="item_${index}" ${item.checked ? 'checked' : ''}>
+              <label for="item_${index}">${item.info}</label>
+          </li>`;
+      todo.innerHTML = logMessage;
     })
 }
 
