@@ -48,6 +48,9 @@ button {
 .todo {
   padding-left: 0; }
   .todo li {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
     padding: 1em;
     list-style-type: none; }
     .todo li:not(:last-child) {
@@ -91,4 +94,11 @@ input[type=checkbox]:checked + label:before {
 
 .none {
   display: none;
+}
+
+.todo-delete {
+	padding: 0;
+	margin: 0 10px;
+	height: 20px;
+	width: 60px
 }
